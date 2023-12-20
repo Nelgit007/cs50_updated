@@ -1,11 +1,21 @@
 #include <cs50.h>
 #include <stdio.h>
+#include <string.h>
 
 int main(void)
 {
-    string name = get_string("What is your name? ");
-    int age = get_int("How old are you? ");
-    long phone_no = get_long("Input your phone number: ");
+    string names[] = {"Nelson", "Rachael"};
+    string numbers[] = {"07060442744", "081"};
 
-    printf("Welcome! %s you are %i years, and your number is %li.\n", name, age, phone_no);
+    string name = get_string("Enter Name: ");
+    for (int i = 0; i < 2; i++)
+    {
+        if (strcmp(names[i], name) == 0)
+        {
+            printf("Number Found %s\n", numbers[i]);
+            return 0;
+        }
+    }
+    printf("Number Not Found:\n");
+    return 1;
 }
